@@ -30,5 +30,10 @@ module.exports = {
 			component: true,
 			html: true,
 		}],
+		'react/jsx-tag-spacing': ['error', {
+			closingSlash: 'never',
+			beforeSelfClosing: 'always',
+		}],
+
 	},
 };
