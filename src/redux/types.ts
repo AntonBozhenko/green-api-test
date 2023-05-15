@@ -6,4 +6,5 @@ export type Contact = {
 export type State = {
 	user: [string, string];
 	contacts: Contact[];
+	activeContact: Contact;
 };

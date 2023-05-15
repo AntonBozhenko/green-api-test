@@ -1,11 +1,11 @@
 import React, {type FC, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Navigate, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import {type RootState} from './redux/store';
-import ConditionElement from './components/CustomRoute/ConditionElement';
 import checkIdentification from './App.functions';
 import Identification from './Pages/Identification/Identification';
 import Main from './Pages/Chat/Main';
+import ConditionElement from './components/ConditionElement/ConditionElement';
 
 const App: FC = () => {
 	const {user} = useSelector((state: RootState) => state.user);

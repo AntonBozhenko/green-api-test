@@ -5,6 +5,7 @@ import {type Contact, type State} from './types';
 const initialState: State = {
 	user: ['', ''],
 	contacts: [],
+	activeContact: {chatId: '', number: ''},
 };
 
 const userSlice = createSlice({
@@ -22,9 +23,13 @@ const userSlice = createSlice({
 		addContact(state, action: PayloadAction<Contact>) {
 			state.contacts = [...state.contacts, action.payload];
 		},
+
+		setActiveContact(state, action: PayloadAction<Contact>) {
+			state.activeContact = action.payload;
+		},
 	},
 });
 
-export const {setUser, setContacts, addContact} = userSlice.actions;
+export const {setUser, setContacts, addContact, setActiveContact} = userSlice.actions;
 
 export default userSlice.reducer;
