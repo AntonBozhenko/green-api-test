@@ -1,0 +1,44 @@
+.newcontact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    padding: 10px 20px;
+
+    input {
+        width: 90%;
+
+        background-color: #222e35;
+        color: #d1d7db;
+
+        border: none;
+        border-radius: 8px;
+        outline: none;
+
+        padding: 10px;
+    }
+
+    button {
+        background-color: transparent;
+        color: #8696a0;
+        font-size: 32px;
+
+        border: none;
+        outline: none;
+
+        cursor: pointer;
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+
+    .error {
+        position: absolute;
+        right: 30px;
+        bottom: -25px;
+        color: red;
+    }
+}
