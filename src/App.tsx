@@ -5,7 +5,7 @@ import {type RootState} from './redux/store';
 import ConditionElement from './components/CustomRoute/ConditionElement';
 import checkIdentification from './App.functions';
 import Identification from './Pages/Identification/Identification';
-import Chat from './Pages/Chat/Chat';
+import Main from './Pages/Chat/Main';
 
 const App: FC = () => {
 	const {user} = useSelector((state: RootState) => state.user);
@@ -18,7 +18,7 @@ const App: FC = () => {
 	return (
 		<>
 			<Routes>
-				<Route path='/' element={<ConditionElement condition={Boolean(user[0])} redirect='/identification' element={<Chat />} />} />
+				<Route path='/' element={<ConditionElement condition={Boolean(user[0])} redirect='/identification' element={<Main />} />} />
 				<Route path='/identification' element={<ConditionElement condition={!user[0]} redirect='/' element={<Identification />} />} />
 				<Route path='*' element={<p>404</p>} />
 			</Routes>
