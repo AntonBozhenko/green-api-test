@@ -4,7 +4,7 @@ import {Route, Routes} from 'react-router-dom';
 import {type RootState} from './redux/store';
 import checkIdentification from './App.functions';
 import Identification from './Pages/Identification/Identification';
-import Main from './Pages/Chat/Main';
+import Main from './Pages/Main/Main';
 import ConditionElement from './components/ConditionElement/ConditionElement';
 
 const App: FC = () => {
