@@ -28,8 +28,7 @@ export function identificate(
 			setErrorMessage('');
 		}, 2000);
 	} else {
-		const identData: [string, string] = [data.idInstance, data.apiTokenInstance];
-		localStorage.setItem('identData', JSON.stringify(identData));
-		dispatch(setUser(identData));
+		localStorage.setItem('identData', JSON.stringify(data));
+		dispatch(setUser(data));
 	}
 }

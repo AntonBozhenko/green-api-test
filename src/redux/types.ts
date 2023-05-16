@@ -1,3 +1,8 @@
+export type User = {
+	idInstance: string;
+	apiTokenInstance: string;
+};
+
 export type Contact = {
 	chatId: string;
 	number: string;
@@ -11,7 +16,7 @@ export type Message = {
 };
 
 export type State = {
-	user: [string, string];
+	user: User;
 	contacts: Contact[];
 	activeContact: Contact;
 	messages: Message[];

@@ -57,7 +57,7 @@ export function addNewContact(
 export function numberHandleChange(
 	event: React.ChangeEvent<HTMLInputElement>,
 	setNumber: React.Dispatch<React.SetStateAction<string>>) {
-	if (Number(event.target.value) || event.target.value === '') {
+	if (Number(event.target.value) || ['', '+'].includes(event.target.value)) {
 		setNumber(event.target.value);
 	}
 }

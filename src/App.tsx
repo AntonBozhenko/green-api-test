@@ -8,7 +8,7 @@ import Main from './Pages/Main/Main';
 import ConditionElement from './components/ConditionElement/ConditionElement';
 
 const App: FC = () => {
-	const {user} = useSelector((state: RootState) => state.user);
+	const {idInstance} = useSelector((state: RootState) => state.user.user);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -18,8 +18,8 @@ const App: FC = () => {
 	return (
 		<>
 			<Routes>
-				<Route path='/' element={<ConditionElement condition={Boolean(user[0])} redirect='/identification' element={<Main />} />} />
-				<Route path='/identification' element={<ConditionElement condition={!user[0]} redirect='/' element={<Identification />} />} />
+				<Route path='/' element={<ConditionElement condition={Boolean(idInstance)} redirect='/identification' element={<Main />} />} />
+				<Route path='/identification' element={<ConditionElement condition={Boolean(!idInstance)} redirect='/' element={<Identification />} />} />
 				<Route path='*' element={<p>404</p>} />
 			</Routes>
 		</>
