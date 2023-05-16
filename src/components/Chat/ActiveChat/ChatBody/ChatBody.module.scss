@@ -1,0 +1,70 @@
+.chatbody {
+    height: 80%;
+
+    overflow-y: scroll;
+
+    box-sizing: border-box;
+
+    padding: 10px 20px;
+
+    background-image: url(../../../../../public/images/background.jpeg);
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+
+    p {
+        padding: 8px;
+        margin: 0;
+
+        align-self: center;
+
+        border-radius: 10px;
+
+        background-color: #202c33;
+        color: #e9edef;
+    }
+
+    span {
+        padding: 8px 50px 12px 8px;
+
+        max-width: 60%;
+
+        color: #e9edef;
+
+        border-radius: 10px;
+
+        position: relative;
+
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+
+        &::after {
+            content: attr(data-time);
+
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+
+            color: #8696a0;
+            font-size: 0.7em;
+        }
+    }
+
+    .mine {
+        align-self: flex-end;
+
+        background-color: #005c4b;
+
+        border-bottom-right-radius: 0;
+    }
+
+    .incoming {
+        align-self: flex-start;
+
+        background-color: #202c33;
+
+        border-bottom-left-radius: 0;
+    }
+}

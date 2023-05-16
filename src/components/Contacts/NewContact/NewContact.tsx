@@ -10,7 +10,7 @@ const NewContact: FC = () => {
 
 	return (
 		<form className={styles.newcontact}>
-			<input type='text' placeholder='новый чат' value={number} onChange={event => {
+			<input type='text' placeholder='Новый чат' value={number} onChange={event => {
 				numberHandleChange(event, setNumber);
 			}} />
 			<button type='button' onClick={() => {

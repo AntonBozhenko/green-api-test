@@ -1,11 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
 import type {PayloadAction} from '@reduxjs/toolkit';
-import {type Contact, type State} from './types';
+import {type Message, type Contact, type State} from './types';
 
 const initialState: State = {
 	user: ['', ''],
 	contacts: [],
 	activeContact: {chatId: '', number: ''},
+	messages: [],
 };
 
 const userSlice = createSlice({
@@ -27,9 +28,21 @@ const userSlice = createSlice({
 		setActiveContact(state, action: PayloadAction<Contact>) {
 			state.activeContact = action.payload;
 		},
+
+		closeActiveContact(state) {
+			state.activeContact = {chatId: '', number: ''};
+		},
+
+		setMessages(state, action: PayloadAction<Message[]>) {
+			state.messages = action.payload;
+		},
+
+		addMessages(state, action: PayloadAction<Message>) {
+			state.messages = [...state.messages, action.payload];
+		},
 	},
 });
 
-export const {setUser, setContacts, addContact, setActiveContact} = userSlice.actions;
+export const {setUser, setContacts, addContact, setActiveContact, closeActiveContact, setMessages, addMessages} = userSlice.actions;
 
 export default userSlice.reducer;
