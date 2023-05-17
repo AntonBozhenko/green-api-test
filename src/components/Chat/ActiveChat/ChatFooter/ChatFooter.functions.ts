@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 import {type Dispatch} from '@reduxjs/toolkit';
 import axios from 'axios';
 import url from '../url';
@@ -8,7 +9,12 @@ export default async function sendMessage(
 	user: State,
 	message: string,
 	dispatch: Dispatch,
-	setMessage: React.Dispatch<React.SetStateAction<string>>) {
+	setMessage: React.Dispatch<React.SetStateAction<string>>,
+	event?: React.FormEvent<HTMLFormElement>) {
+	if (event) {
+		event.preventDefault();
+	}
+
 	const {user: {idInstance, apiTokenInstance}, activeContact: {chatId}} = user;
 
 	if (message) {
@@ -36,6 +42,12 @@ export default async function sendMessage(
 			}
 
 			dispatch(addMessage(newMessage));
+
+			const chatBody = document.getElementById('chatbody') as HTMLDivElement;
+			setTimeout(() => {
+				chatBody.scrollTop = chatBody.scrollHeight;
+			}, 0);
+
 			setMessage('');
 		}
 	}

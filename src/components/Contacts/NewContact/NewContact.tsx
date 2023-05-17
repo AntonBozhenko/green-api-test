@@ -8,13 +8,21 @@ const NewContact: FC = () => {
 	const [number, setNumber] = useState('');
 	const [error, setError] = useState('');
 
+	function zalupa(event: React.FormEvent<HTMLFormElement>) {
+		event.preventDefault();
+		console.log(1);
+	}
+
 	return (
-		<form className={styles.newcontact}>
+		<form className={styles.newcontact} onSubmit={event => {
+			addNewContact(number, dispatch, {setNumber, setError}, event);
+		}}>
 			<input type='text' placeholder='Новый чат' value={number} onChange={event => {
 				numberHandleChange(event, setNumber);
-			}} />
+			}}
+			/>
 			<button type='button' onClick={() => {
-				addNewContact(number, dispatch, setNumber, setError);
+				addNewContact(number, dispatch, {setNumber, setError});
 			}}>+</button>
 			<p className={styles.error}>{error}</p>
 		</form>

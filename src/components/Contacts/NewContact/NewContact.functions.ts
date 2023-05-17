@@ -1,6 +1,7 @@
 import {type Dispatch} from '@reduxjs/toolkit';
 import {type Contact} from '../../../redux/types';
 import {addContact} from '../../../redux/userSlice';
+import {type Setters} from './NewContact.types';
 
 function checkNumber(number: string): boolean {
 	return Boolean(/^(\+7|8)\d{10}$/.exec(number.trim()));
@@ -21,9 +22,14 @@ function makeChatId(correctNumber: string): string {
 export function addNewContact(
 	number: string,
 	dispatch: Dispatch,
-	setNumber: React.Dispatch<React.SetStateAction<string>>,
-	setError: React.Dispatch<React.SetStateAction<string>>,
+	setters: Setters,
+	event?: React.FormEvent<HTMLFormElement>,
 ) {
+	const {setNumber, setError} = setters;
+	if (event) {
+		event.preventDefault();
+	}
+
 	if (number) {
 		if (checkNumber(number)) {
 			const correctNumber = makeCorrectNumber(number);
